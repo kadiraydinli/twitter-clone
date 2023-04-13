@@ -1,12 +1,20 @@
+import { useCallback } from "react";
 import { useRouter } from "next/router";
 import { FaFeather } from "react-icons/fa";
+import useLoginModal from "@/hooks/useLoginModal";
 
 interface SidebarTweetButtonProps {}
 
 const SidebarTweetButton: React.FC<SidebarTweetButtonProps> = () => {
   const router = useRouter();
+  const loginModal = useLoginModal();
+
+  const onClick = useCallback(() => {
+    loginModal.onOpen();
+  }, [loginModal]);
+
   return (
-    <div onClick={() => router.push("/")}>
+    <div onClick={onClick}>
       <div className="rounded-full lg:hidden mt-6 w-14 h-14 p-4 flex items-center justify-center bg-sky-300 hover:bg-opacity-80 transition cursor-pointer">
         <FaFeather size={24} color="white" />
       </div>
