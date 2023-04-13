@@ -63,6 +63,7 @@ const Modal: React.FC<ModalProps> = ({
                 fullWidth
                 large
               />
+              {footer}
             </div>
           </div>
         </div>
