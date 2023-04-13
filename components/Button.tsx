@@ -1,6 +1,6 @@
 interface ButtonProps {
   label: string;
-  secondary?: string;
+  secondary?: boolean;
   fullWidth?: boolean;
   large?: boolean;
   onClick: () => void;
