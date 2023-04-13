@@ -1,0 +1,19 @@
+{
+  "React Component": {
+    "prefix": "tsx",
+    "body": [
+      "interface ${TM_FILENAME_BASE}Props { };",
+      "",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "  return (",
+      "    <div>",
+      "      $1",
+      "    </div>",
+      "  );",
+      "}",
+      "",
+      "export default ${TM_FILENAME_BASE};"
+    ],
+    "description": "Create a new React functional component"
+  }
+}
