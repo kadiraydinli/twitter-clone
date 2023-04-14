@@ -2,12 +2,12 @@
   "React Component": {
     "prefix": "tsx",
     "body": [
-      "interface ${TM_FILENAME_BASE}Props { };",
+      "interface ${TM_FILENAME_BASE}Props {$1};",
       "",
-      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = () => {",
+      "const ${TM_FILENAME_BASE}: React.FC<${TM_FILENAME_BASE}Props> = ($2) => {",
       "  return (",
       "    <div>",
-      "      $1",
+      "      $3",
       "    </div>",
       "  );",
       "}",
