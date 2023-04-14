@@ -1,8 +1,10 @@
 import { useCallback, useState } from "react";
-import useLoginModal from "@/hooks/useLoginModal";
-import useRegisterModal from "@/hooks/useRegisterModal";
+import { signIn } from "next-auth/react";
 import Input from "../Input";
 import Modal from "../Modal";
+
+import useLoginModal from "@/hooks/useLoginModal";
+import useRegisterModal from "@/hooks/useRegisterModal";
 
 interface LoginModalProps {}
 
@@ -16,14 +18,17 @@ const LoginModal: React.FC<LoginModalProps> = () => {
   const onSubmit = useCallback(async () => {
     try {
       setIsLoading(true);
-      /* TO DO ADD LOG IN */
+      await signIn("credentials", {
+        email,
+        password,
+      });
       loginModal.onOpen();
     } catch (err) {
       console.log(err);
     } finally {
       setIsLoading(false);
     }
-  }, [loginModal]);
+  }, [email, loginModal, password]);
 
   const onToggle = useCallback(() => {
     if (isLoading) return null;
