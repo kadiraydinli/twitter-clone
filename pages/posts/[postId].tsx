@@ -6,6 +6,7 @@ import usePost from "@/hooks/usePost";
 import Header from "@/components/Header";
 import PostItem from "@/components/posts/PostItem";
 import Form from "@/components/Form";
+import CommentFeed from "@/components/posts/CommentFeed";
 
 const PostView: React.FC = () => {
   const router = useRouter();
@@ -37,6 +38,7 @@ const PostView: React.FC = () => {
             isComment
             placeholder="Tweet your reply"
           />
+          <CommentFeed comments={fetchedPost?.comments} />
         </>
       )}
     </>
