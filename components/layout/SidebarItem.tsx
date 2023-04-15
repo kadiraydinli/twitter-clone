@@ -27,10 +27,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   const handleClick = useCallback(() => {
     if (onClick) onClick();
 
-    if (auth && !currentUser) {
-      loginModal.onOpen();
-      return;
-    }
+    if (auth && !currentUser) return loginModal.onOpen();
 
     if (href) router.push(href);
   }, [auth, currentUser, href, loginModal, onClick, router]);
