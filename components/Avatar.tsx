@@ -48,6 +48,7 @@ const Avatar: React.FC<AvatarProps> = ({ userId, isLarge, hasBorder }) => {
         alt="Avatar"
         onClick={onClick}
         src={fetchedUser?.profileImage || "/images/placeholder.png"}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
   );
