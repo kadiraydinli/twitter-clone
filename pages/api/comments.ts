@@ -25,6 +25,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             },
         });
 
+        try {
+            const post = await prisma.post.findUnique({
+                where: {
+                    id: postId,
+                }
+            });
+
+            if (post?.userId) {
+                await prisma.notifications.create({
+                    data: {
+                        body: 'Someone replied to your tweet!',
+                        userId: post.userId,
+                    },
+                });
+
+                await prisma.user.update({
+                    where: {
+                        id: post.userId,
+                    },
+                    data: {
+                        hasNotification: true,
+                    },
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+
         return res.status(200).json(comment);
     } catch (err) {
         console.log(err);

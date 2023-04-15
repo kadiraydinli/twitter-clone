@@ -16,6 +16,7 @@ type SidebarItemsType = {
   href: string;
   icon: IconType;
   auth?: boolean;
+  alert?: boolean;
 };
 
 const Sidebar: React.FC<SidebarProps> = () => {
@@ -32,6 +33,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
       href: "/notifications",
       icon: BsBellFill,
       auth: true,
+      alert: currentUser?.hasNotification,
     },
     {
       label: "Profile",
@@ -53,6 +55,7 @@ const Sidebar: React.FC<SidebarProps> = () => {
               href={item.href}
               icon={item.icon}
               auth={item.auth}
+              alert={item.alert}
             />
           ))}
           {currentUser && (
