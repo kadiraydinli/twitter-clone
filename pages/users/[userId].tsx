@@ -8,9 +8,7 @@ import UserHero from "@/components/users/UserHero";
 import UserBio from "@/components/users/UserBio";
 import PostFeed from "@/components/posts/PostFeed";
 
-interface UserViewProps {}
-
-const UserView: React.FC<UserViewProps> = () => {
+const UserView: React.FC = () => {
   const router = useRouter();
   const { userId } = router.query;
 
